@@ -54,7 +54,7 @@ abstract class GetService {
   });
 
   /// It replaces Navigator.pop, but needs no context.
-  bool back<T>({T result});
+  void back<T>({T result});
 
   /// It will close as many screens as you define. Times must be> 0;
   void close(int times);
@@ -212,7 +212,7 @@ class _Get implements GetService {
   }
 
   /// It replaces Navigator.pop, but needs no context.
-  bool back<T>({T result}) {
+  void back<T>({T result}) {
     return key.currentState.pop<T>(result);
   }
 
