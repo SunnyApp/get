@@ -213,7 +213,7 @@ class _Get implements GetService {
 
   /// It replaces Navigator.pop, but needs no context.
   void back<T>({T result}) {
-    return key.currentState.pop<T>(result);
+    key.currentState.pop<T>(result);
   }
 
   /// It will close as many screens as you define. Times must be> 0;
@@ -225,7 +225,6 @@ class _Get implements GetService {
     var back = key.currentState.popUntil((route) {
       return count++ == times;
     });
-    return back;
   }
 
   /// It replaces Navigator.pushReplacement, but needs no context, and it doesn't have the Navigator.pushReplacement
