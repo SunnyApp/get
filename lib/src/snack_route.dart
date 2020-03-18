@@ -268,7 +268,7 @@ class SnackRoute<T> extends OverlayRoute<T> {
   }
 
   @override
-  void install(OverlayEntry insertionPoint) {
+  void install() {
     assert(!_transitionCompleter.isCompleted, 'Cannot install a $runtimeType after disposing it.');
     _controller = createAnimationController();
     assert(_controller != null, '$runtimeType.createAnimationController() returned null.');
@@ -276,7 +276,7 @@ class SnackRoute<T> extends OverlayRoute<T> {
     _filterColorAnimation = createColorFilterAnimation();
     _animation = createAnimation();
     assert(_animation != null, '$runtimeType.createAnimation() returned null.');
-    super.install(insertionPoint);
+    super.install();
   }
 
   @override
