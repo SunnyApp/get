@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'bottomsheet.dart';
 import 'dialog.dart';
 import 'getroute.dart';
-import 'snack.dart';
+//import 'snack.dart';
 
 // ignore: non_constant_identifier_names
 final GetService Get = _Get();
@@ -101,40 +101,40 @@ abstract class GetService {
     bool enableDrag = true,
   });
 
-  GetBar snackbar(title, message,
-      {Color colorText,
-      Duration duration,
-      SnackPosition snackPosition,
-      Widget titleText,
-      Widget messageText,
-      Widget icon,
-      bool shouldIconPulse,
-      double maxWidth,
-      EdgeInsets margin,
-      EdgeInsets padding,
-      double borderRadius,
-      Color borderColor,
-      double borderWidth,
-      Color backgroundColor,
-      Color leftBarIndicatorColor,
-      List<BoxShadow> boxShadows,
-      Gradient backgroundGradient,
-      FlatButton mainButton,
-      OnTap onTap,
-      bool isDismissible,
-      bool showProgressIndicator,
-      SnackDismissDirection dismissDirection,
-      AnimationController progressIndicatorController,
-      Color progressIndicatorBackgroundColor,
-      Animation<Color> progressIndicatorValueColor,
-      SnackStyle snackStyle,
-      Curve forwardAnimationCurve,
-      Curve reverseAnimationCurve,
-      Duration animationDuration,
-      double barBlur,
-      double overlayBlur,
-      Color overlayColor,
-      Form userInputForm});
+//  GetBar snackbar(title, message,
+//      {Color colorText,
+//      Duration duration,
+//      SnackPosition snackPosition,
+//      Widget titleText,
+//      Widget messageText,
+//      Widget icon,
+//      bool shouldIconPulse,
+//      double maxWidth,
+//      EdgeInsets margin,
+//      EdgeInsets padding,
+//      double borderRadius,
+//      Color borderColor,
+//      double borderWidth,
+//      Color backgroundColor,
+//      Color leftBarIndicatorColor,
+//      List<BoxShadow> boxShadows,
+//      Gradient backgroundGradient,
+//      FlatButton mainButton,
+//      OnTap onTap,
+//      bool isDismissible,
+//      bool showProgressIndicator,
+//      SnackDismissDirection dismissDirection,
+//      AnimationController progressIndicatorController,
+//      Color progressIndicatorBackgroundColor,
+//      Animation<Color> progressIndicatorValueColor,
+//      SnackStyle snackStyle,
+//      Curve forwardAnimationCurve,
+//      Curve reverseAnimationCurve,
+//      Duration animationDuration,
+//      double barBlur,
+//      double overlayBlur,
+//      Color overlayColor,
+//      Form userInputForm});
 }
 
 class _Get implements GetService {
@@ -222,7 +222,7 @@ class _Get implements GetService {
       times = 1;
     }
     int count = 0;
-    var back = key.currentState.popUntil((route) {
+    key.currentState.popUntil((route) {
       return count++ == times;
     });
   }
@@ -327,88 +327,88 @@ class _Get implements GetService {
     ));
   }
 
-  GetBar snackbar(title, message,
-      {Color colorText,
-      Duration duration,
-      SnackPosition snackPosition,
-      Widget titleText,
-      Widget messageText,
-      Widget icon,
-      bool shouldIconPulse,
-      double maxWidth,
-      EdgeInsets margin,
-      EdgeInsets padding,
-      double borderRadius,
-      Color borderColor,
-      double borderWidth,
-      Color backgroundColor,
-      Color leftBarIndicatorColor,
-      List<BoxShadow> boxShadows,
-      Gradient backgroundGradient,
-      FlatButton mainButton,
-      OnTap onTap,
-      bool isDismissible,
-      bool showProgressIndicator,
-      SnackDismissDirection dismissDirection,
-      AnimationController progressIndicatorController,
-      Color progressIndicatorBackgroundColor,
-      Animation<Color> progressIndicatorValueColor,
-      SnackStyle snackStyle,
-      Curve forwardAnimationCurve,
-      Curve reverseAnimationCurve,
-      Duration animationDuration,
-      double barBlur,
-      double overlayBlur,
-      Color overlayColor,
-      Form userInputForm}) {
-    //   if (key.currentState.mounted)
-    return GetBar(
-        titleText: titleText ??
-            Text(
-              title,
-              style: TextStyle(
-                  color: colorText ?? Theme.of(Get.key.currentContext).accentColor,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 16),
-            ),
-        messageText: messageText ??
-            Text(
-              message,
-              style: TextStyle(
-                  color: colorText ?? Theme.of(Get.key.currentContext).accentColor,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 14),
-            ),
-        snackPosition: snackPosition ?? SnackPosition.TOP,
-        borderRadius: borderRadius ?? 15,
-        margin: margin ?? EdgeInsets.symmetric(horizontal: 10),
-        duration: duration ?? Duration(seconds: 3),
-        barBlur: barBlur ?? 7.0,
-        backgroundColor: backgroundColor ?? Colors.grey.withOpacity(0.2),
-        icon: icon,
-        shouldIconPulse: shouldIconPulse ?? true,
-        maxWidth: maxWidth,
-        padding: padding ?? EdgeInsets.all(16),
-        borderColor: borderColor,
-        borderWidth: borderWidth,
-        leftBarIndicatorColor: leftBarIndicatorColor,
-        boxShadows: boxShadows,
-        backgroundGradient: backgroundGradient,
-        mainButton: mainButton,
-        onTap: onTap,
-        isDismissible: isDismissible ?? true,
-        dismissDirection: dismissDirection ?? SnackDismissDirection.VERTICAL,
-        showProgressIndicator: showProgressIndicator ?? false,
-        progressIndicatorController: progressIndicatorController,
-        progressIndicatorBackgroundColor: progressIndicatorBackgroundColor,
-        progressIndicatorValueColor: progressIndicatorValueColor,
-        snackStyle: snackStyle ?? SnackStyle.FLOATING,
-        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeOutCirc,
-        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutCirc,
-        animationDuration: animationDuration ?? Duration(seconds: 1),
-        overlayBlur: overlayBlur ?? 0.0,
-        overlayColor: overlayColor ?? Colors.transparent,
-        userInputForm: userInputForm)
-      ..show();
-  }
+//  GetBar snackbar(title, message,
+//      {Color colorText,
+//      Duration duration,
+//      SnackPosition snackPosition,
+//      Widget titleText,
+//      Widget messageText,
+//      Widget icon,
+//      bool shouldIconPulse,
+//      double maxWidth,
+//      EdgeInsets margin,
+//      EdgeInsets padding,
+//      double borderRadius,
+//      Color borderColor,
+//      double borderWidth,
+//      Color backgroundColor,
+//      Color leftBarIndicatorColor,
+//      List<BoxShadow> boxShadows,
+//      Gradient backgroundGradient,
+//      FlatButton mainButton,
+//      OnTap onTap,
+//      bool isDismissible,
+//      bool showProgressIndicator,
+//      SnackDismissDirection dismissDirection,
+//      AnimationController progressIndicatorController,
+//      Color progressIndicatorBackgroundColor,
+//      Animation<Color> progressIndicatorValueColor,
+//      SnackStyle snackStyle,
+//      Curve forwardAnimationCurve,
+//      Curve reverseAnimationCurve,
+//      Duration animationDuration,
+//      double barBlur,
+//      double overlayBlur,
+//      Color overlayColor,
+//      Form userInputForm}) {
+//    //   if (key.currentState.mounted)
+//    return GetBar(
+//        titleText: titleText ??
+//            Text(
+//              title,
+//              style: TextStyle(
+//                  color: colorText ?? Theme.of(Get.key.currentContext).accentColor,
+//                  fontWeight: FontWeight.w800,
+//                  fontSize: 16),
+//            ),
+//        messageText: messageText ??
+//            Text(
+//              message,
+//              style: TextStyle(
+//                  color: colorText ?? Theme.of(Get.key.currentContext).accentColor,
+//                  fontWeight: FontWeight.w300,
+//                  fontSize: 14),
+//            ),
+//        snackPosition: snackPosition ?? SnackPosition.TOP,
+//        borderRadius: borderRadius ?? 15,
+//        margin: margin ?? EdgeInsets.symmetric(horizontal: 10),
+//        duration: duration ?? Duration(seconds: 3),
+//        barBlur: barBlur ?? 7.0,
+//        backgroundColor: backgroundColor ?? Colors.grey.withOpacity(0.2),
+//        icon: icon,
+//        shouldIconPulse: shouldIconPulse ?? true,
+//        maxWidth: maxWidth,
+//        padding: padding ?? EdgeInsets.all(16),
+//        borderColor: borderColor,
+//        borderWidth: borderWidth,
+//        leftBarIndicatorColor: leftBarIndicatorColor,
+//        boxShadows: boxShadows,
+//        backgroundGradient: backgroundGradient,
+//        mainButton: mainButton,
+//        onTap: onTap,
+//        isDismissible: isDismissible ?? true,
+//        dismissDirection: dismissDirection ?? SnackDismissDirection.VERTICAL,
+//        showProgressIndicator: showProgressIndicator ?? false,
+//        progressIndicatorController: progressIndicatorController,
+//        progressIndicatorBackgroundColor: progressIndicatorBackgroundColor,
+//        progressIndicatorValueColor: progressIndicatorValueColor,
+//        snackStyle: snackStyle ?? SnackStyle.FLOATING,
+//        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeOutCirc,
+//        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutCirc,
+//        animationDuration: animationDuration ?? Duration(seconds: 1),
+//        overlayBlur: overlayBlur ?? 0.0,
+//        overlayColor: overlayColor ?? Colors.transparent,
+//        userInputForm: userInputForm)
+//      ..show();
+//  }
 }
