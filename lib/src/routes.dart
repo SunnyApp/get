@@ -24,7 +24,8 @@ abstract class GetService {
   /// It replaces Navigator.push, but needs no context, and it doesn't have the Navigator.push
   /// routes rebuild bug present in Flutter. If for some strange reason you want the default behavior
   /// of rebuilding every app after a route, use rebuildRoutes = true as the parameter.
-  Future<T> to<T>(Widget page, {bool rebuildRoutes = false, Transition transition = Transition.fade});
+  Future<T> to<T>(Widget page,
+      {bool rebuildRoutes = false, Transition transition = Transition.fade});
 
   /// It replaces Navigator.pushNamed, but needs no context, and it doesn't have the Navigator.pushNamed
   /// routes rebuild bug present in Flutter. If for some strange reason you want the default behavior
@@ -66,13 +67,17 @@ abstract class GetService {
   /// of rebuilding every app after a route, use rebuildRoutes = true as the parameter.
   ///
   /// If no [predicate] is provided, then all routes will be popped
-  Future<T> off<T, TO>(Widget page, {bool rebuildRoutes = false, Transition transition = Transition.rightToLeft});
+  Future<T> off<T, TO>(Widget page,
+      {bool rebuildRoutes = false,
+      Transition transition = Transition.rightToLeft});
 
   /// It replaces Navigator.pushAndRemoveUntil, but needs no context
   ///
   /// If no [predicate] is provided, then all routes will be popped
   Future<T> offAll<T>(Widget page,
-      {RoutePredicate predicate, bool rebuildRoutes = false, Transition transition = Transition.rightToLeft});
+      {RoutePredicate predicate,
+      bool rebuildRoutes = false,
+      Transition transition = Transition.rightToLeft});
 
   /// Show a dialog. You can choose color and opacity of background
   Future<T> dialog<T>(
@@ -153,10 +158,12 @@ class _Get implements GetService {
   /// It replaces Navigator.push, but needs no context, and it doesn't have the Navigator.push
   /// routes rebuild bug present in Flutter. If for some strange reason you want the default behavior
   /// of rebuilding every app after a route, use rebuildRoutes = true as the parameter.
-  Future<T> to<T>(Widget page, {bool rebuildRoutes = false, Transition transition = Transition.fade}) {
+  Future<T> to<T>(Widget page,
+      {bool rebuildRoutes = false, Transition transition = Transition.fade}) {
     // if (key.currentState.mounted) // add this if appear problems on future with route navigate
     // when widget don't mounted
-    return key.currentState.push<T>(GetRoute(opaque: rebuildRoutes, page: page, transition: transition));
+    return key.currentState.push<T>(
+        GetRoute(opaque: rebuildRoutes, page: page, transition: transition));
   }
 
   /// It replaces Navigator.pushNamed, but needs no context, and it doesn't have the Navigator.pushNamed
@@ -172,7 +179,8 @@ class _Get implements GetService {
   Future<T> offNamed<T, TO>(String page, {arguments}) {
     // if (key.currentState.mounted) // add this if appear problems on future with route navigate
     // when widget don't mounted
-    return key.currentState.pushReplacementNamed<T, TO>(page, arguments: arguments);
+    return key.currentState
+        .pushReplacementNamed<T, TO>(page, arguments: arguments);
   }
 
   /// It replaces Navigator.popUntil, but needs no context.
@@ -210,7 +218,8 @@ class _Get implements GetService {
     arguments,
   }) {
     predicate ??= (route) => false;
-    return key.currentState.pushNamedAndRemoveUntil<T>(newRouteName, predicate, arguments: arguments);
+    return key.currentState.pushNamedAndRemoveUntil<T>(newRouteName, predicate,
+        arguments: arguments);
   }
 
   /// It replaces Navigator.pop, but needs no context.
@@ -234,19 +243,24 @@ class _Get implements GetService {
   /// of rebuilding every app after a route, use rebuildRoutes = true as the parameter.
   ///
   /// If no [predicate] is provided, then all routes will be popped
-  Future<T> off<T, TO>(Widget page, {bool rebuildRoutes = false, Transition transition = Transition.rightToLeft}) {
-    return key.currentState
-        .pushReplacement<T, TO>(GetRoute<T>(opaque: rebuildRoutes, page: page, transition: transition));
+  Future<T> off<T, TO>(Widget page,
+      {bool rebuildRoutes = false,
+      Transition transition = Transition.rightToLeft}) {
+    return key.currentState.pushReplacement<T, TO>(
+        GetRoute<T>(opaque: rebuildRoutes, page: page, transition: transition));
   }
 
   /// It replaces Navigator.pushAndRemoveUntil, but needs no context
   ///
   /// If no [predicate] is provided, then all routes will be popped
   Future<T> offAll<T>(Widget page,
-      {RoutePredicate predicate, bool rebuildRoutes = false, Transition transition = Transition.rightToLeft}) {
+      {RoutePredicate predicate,
+      bool rebuildRoutes = false,
+      Transition transition = Transition.rightToLeft}) {
     predicate ??= (route) => true;
-    return key.currentState
-        .pushAndRemoveUntil<T>(GetRoute<T>(opaque: rebuildRoutes, page: page, transition: transition), predicate);
+    return key.currentState.pushAndRemoveUntil<T>(
+        GetRoute<T>(opaque: rebuildRoutes, page: page, transition: transition),
+        predicate);
   }
 
   /// Show a dialog. You can choose color and opacity of background
@@ -258,18 +272,22 @@ class _Get implements GetService {
   }) {
     assert(child != null);
     assert(useRootNavigator != null);
-    final ThemeData theme = Theme.of(key.currentContext, shadowThemeOnly: true);
+    final ThemeData theme = Theme.of(key.currentContext);
     return getShowGeneralDialog(
-      pageBuilder: (BuildContext buildContext, Animation<double> animation, Animation<double> secondaryAnimation) {
+      pageBuilder: (BuildContext buildContext, Animation<double> animation,
+          Animation<double> secondaryAnimation) {
         final Widget pageChild = child; // ?? Builder(builder: builder);
         return SafeArea(
           child: Builder(builder: (BuildContext context) {
-            return theme != null ? Theme(data: theme, child: pageChild) : pageChild;
+            return theme != null
+                ? Theme(data: theme, child: pageChild)
+                : pageChild;
           }),
         );
       },
       barrierDismissible: barrierDismissible,
-      barrierLabel: MaterialLocalizations.of(key.currentContext).modalBarrierDismissLabel,
+      barrierLabel:
+          MaterialLocalizations.of(key.currentContext).modalBarrierDismissLabel,
       barrierColor: Colors.black54,
       transitionDuration: const Duration(milliseconds: 150),
       // transitionBuilder: _buildMaterialDialogTransitions,
@@ -316,9 +334,10 @@ class _Get implements GetService {
 
     return key.currentState.push<T>(GetModalBottomSheetRoute<T>(
       builder: builder,
-      theme: Theme.of(key.currentContext, shadowThemeOnly: true),
+      theme: Theme.of(key.currentContext),
       isScrollControlled: isScrollControlled,
-      barrierLabel: MaterialLocalizations.of(key.currentContext).modalBarrierDismissLabel,
+      barrierLabel:
+          MaterialLocalizations.of(key.currentContext).modalBarrierDismissLabel,
       backgroundColor: backgroundColor,
       elevation: elevation,
       shape: shape,
